@@ -4,6 +4,7 @@ Would like to credit Tim Wheeler for reducing my research time
 (via his tutorial: https://codesnippet.io/github-api-tutorial/). 
 */
 
+'use strict'
 const library = require("./codePull")
 
 library.codePull()
