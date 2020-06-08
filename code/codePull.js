@@ -3,13 +3,13 @@ var path = require('path')
 function codePull() {
     var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
     var listOfRepos = []
-    var data = {}
+    // var data = {}
+    var resultList = []
     var request = new XMLHttpRequest()
     const rootUrl1 = 'https://api.github.com/users/OneFabric/repos' // Change the path segment 'OneFabric' to 'your-id'
     const rootUrl2 = 'https://api.github.com/repos'
 
-    var date = new Date()
-    data = date.toISOString
+    const date = "2000-06-03T23:36:40Z"
 
     openRequest(rootUrl1)
 
@@ -17,21 +17,28 @@ function codePull() {
         load1(li)
     };
 
-    (() => {
+    var returnList = (() => {
         request.send() 
 
         for(index in listOfRepos) {
-            var data;
+            var data
+            var result = "Nothing returned"
 
             url = listOfRepos[index]+"&since="+date
             openRequest(url)
 
             request.onload = function(da=data, u=url) {
-                load2(da,u) 
+                result = load2(da,u) 
             }
+
             request.send()
+            resultList[index] = result
         }
+        return resultList
     })()
+
+    return returnList
+
 
     function openRequest(url) {
         request.open('GET',url,false)
@@ -50,15 +57,14 @@ function codePull() {
     function load2(d,url) {
         d = JSON.parse(request.responseText)
 
-        if(d=="") {
-            console.log("No recent activity for "+ path.relative(rootUrl2,url)  )
-        } else {
-            push(d,url)
-        }
-    }
+            if(d=="") {
+                result = "No recent activity for "+ path.relative(rootUrl2,url)
+            } else {
+                result = url+"-> Activity: "+d[0].commit.message
+            }
 
-    function push(data,url) {
-        console.log(url+"-> Activity: "+data[0].commit.message)
+            return result
+        
     }
 }
 

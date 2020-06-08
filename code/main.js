@@ -6,6 +6,8 @@ Would like to credit Tim Wheeler for reducing my research time
 
 'use strict'
 const library = require("./codePull")
+var codePull = library.codePull
 
-library.codePull()
-
+function apiEndpoint() {
+    return codePull()
+}
