@@ -11,3 +11,5 @@ var codePull = library.codePull
 function apiEndpoint() {
     return codePull()
 }
+
+module.exports.apiEndpoint = apiEndpoint
