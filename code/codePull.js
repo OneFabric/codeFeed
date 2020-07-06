@@ -3,7 +3,6 @@ var path = require('path')
 function codePull() {
     var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
     var listOfRepos = []
-    // var data = {}
     var resultList = []
     var request = new XMLHttpRequest()
     const rootUrl1 = 'https://api.github.com/users/OneFabric/repos' // Change the path segment 'OneFabric' to 'your-id'
