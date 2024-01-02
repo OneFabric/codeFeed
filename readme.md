@@ -15,13 +15,6 @@ I wanted to display a live feed of my latest code changes in a website. I decide
 You will get an array of links to the Github API endpoint for your repo(s) along with the latest commit messages for each of your public repos.
 
 
-## Contributions
-
-Contributions are welcome!
-
-For the sake of maintaining ownership over the project, if a developer contributes code fixes or improvements, I gain copyright control over the contribution. The contributor will still remain the original attributor of the content provided.
-
-
 ## Qualifiers
 
 Right now, codeFeed:
